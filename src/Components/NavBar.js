@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Logo from "../img/logo.png";
 import CartWidget from './CartWidget';
 
 const NavBar = () => {
@@ -36,10 +37,10 @@ const NavBar = () => {
 
 
   return (
-    <nav className="navbar is-link" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-warning" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a class="navbar-item">
-          {CartWidget}
+        <img src={Logo} alt="logo"/>       
         </a>
 
         <a
@@ -58,10 +59,13 @@ const NavBar = () => {
       </div>
 
       <div id="navbarBasicExample" className={`navbar-menu ${isMenuOpen ? 'is-active' : ''}`}>
-        <div className="navbar-end">
+        <div className="navbar-start">
             { links.map(x => 
                 <a className="navbar-item" href={x.url}>{x.link}</a>
             )}  
+        </div>
+        <div className='navbar-end'>
+            <CartWidget />
         </div>
       </div>
 

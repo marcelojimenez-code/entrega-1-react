@@ -1,19 +1,18 @@
 import React from 'react'
 
-const ItemListContainer = () => {
-
-  let usuario = {nombre : "Marcelo", apellido: "Jimenez"}
+function ItemListContainer(props) {
+  const parametros = props.parametros;
 
   return (
-    <section className="hero is-white">
-        <div className="hero-body">
-            <p className="title">
-                {usuario.nombre} {usuario.apellido}
-            </p>
-        </div>
+    <section className='hero is-primary'>
+    <div className='hero-body'>
+      <p className='title'>{parametros[0].titulo}</p>
+      <p class="subtitle">
+        Alumno <strong>{parametros[0].alumno}</strong> 
+      </p>
+    </div>
     </section>
-  )
-
+  );
 }
 
 export default ItemListContainer
