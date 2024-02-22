@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Logo from "../img/logo.png";
 import CartWidget from './CartWidget';
+import {Link} from "react-router-dom";
 
 const NavBar = () => {
 
@@ -14,23 +15,23 @@ const NavBar = () => {
   const links = [
     {
         id: 1,
-        link: 'Inicio',
-        url: 'inicio'
+        link: 'Home',
+        url: 'Home'
     },
     {
         id: 2,
-        link: 'Servicios',
-        url: 'servicio'
+        link: 'Galeria',
+        url: 'Galeria'
     },
     {
         id: 3,
         link: 'Productos',
-        url: 'productos'
+        url: 'Productos'
     },
     {
         id: 4,
         link: 'Contacto',
-        url: 'contacto'
+        url: 'Contacto'
     }
 
   ] 
@@ -39,7 +40,7 @@ const NavBar = () => {
   return (
     <nav className="navbar is-warning" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <a class="navbar-item">
+        <a className="navbar-item">
         <img src={Logo} alt="logo"/>       
         </a>
 
@@ -61,7 +62,7 @@ const NavBar = () => {
       <div id="navbarBasicExample" className={`navbar-menu ${isMenuOpen ? 'is-active' : ''}`}>
         <div className="navbar-start">
             { links.map(x => 
-                <a className="navbar-item" href={x.url}>{x.link}</a>
+                <Link className="navbar-item" to={x.url}>{x.link}</Link>               
             )}  
         </div>
         <div className='navbar-end'>

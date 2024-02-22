@@ -1,12 +1,15 @@
-import './App.css';
-import NavBar from './Components/NavBar';
+import { BrowserRouter, Route , Routes } from "react-router-dom";
 
-import ItemListContainer from './Components/ItemListContainer';
+import Home from "./pages/Home";
+import Galeria from "./pages/Galeria";
+import Productos from "./pages/Productos";
+import Layout from './pages/Layout';
+import Producto from "./pages/Producto";
+import Contacto from './pages/Contacto';
 
 import "bulma/css/bulma.css";
 
-
-function App() {  
+function App() {
 
   const parametros = [
     {
@@ -16,11 +19,26 @@ function App() {
   ]
 
   return (
-    <div className="App">
-      <NavBar />            
-      <ItemListContainer parametros={parametros} />      
-    </div>
-  );
+
+    <BrowserRouter>
+
+      <Routes>
+        <Route index path="/" element={<Layout/>} />
+        <Route path="home" element={<Home/>}/>
+        <Route path="galeria"  element={<Galeria/>}/>
+        <Route path="productos" element={<Productos/>}/>
+        <Route path="productos/:productoId" element={<Producto/>}/>
+        <Route path="contacto" element={<Contacto/>}/>
+        <Route path="*" element={<h1>404 no encontrado</h1>} />
+
+      </Routes>    
+
+    </BrowserRouter>
+
+  )
+
 }
+
+ 
 
 export default App;
